@@ -21,7 +21,7 @@ from mytunes import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('registration.backends.simple.urls')),
-    path('', views.home, name ='home')
+    path('', views.list_album, name ='home')
    
 ]
 
