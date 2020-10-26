@@ -21,8 +21,8 @@ from mytunes import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('registration.backends.simple.urls')),
-    path('', views.home, name='home')
-    path('', Home.as_view(), name='home')
+    path('', views.home, name ='home')
+   
 ]
 
 if settings.DEBUG:
