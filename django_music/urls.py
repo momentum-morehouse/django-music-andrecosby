@@ -16,10 +16,13 @@ Including another URLconf
 from django.contrib import admin
 from django.conf import settings
 from django.urls import include, path
+from mytunes import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('registration.backends.simple.urls')),
+    path('', views.home, name='home')
+    path('', Home.as_view(), name='home')
 ]
 
 if settings.DEBUG:
