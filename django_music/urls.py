@@ -13,15 +13,27 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from django.contrib import admin
 from django.conf import settings
+from django.contrib import admin
 from django.urls import include, path
-from mytunes import views
+
+from albums import views as albums_views
+from albums import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('registration.backends.simple.urls')),
-    path('', views.list_album, name ='home')
+    path('', views.list_albums, name ='home'),
+    path('albums/add/', albums_views.add_album, name='add_album'),
+    path('albums/<int:pk>/edit/',
+         albums_views.edit_albums,
+         name='edit_albums'),
+    path('albums/<int:pk>/delete/',
+         albums_views.delete_album,
+         name='delete_album'),
+    path("albums/<int:pk>/", 
+         albums_views.view_album, name="view_album"),
+
    
 ]
 
